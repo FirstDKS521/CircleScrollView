@@ -15,6 +15,7 @@
 		61A0C95A1D5C2FFF00548E2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A0C9581D5C2FFF00548E2C /* LaunchScreen.storyboard */; };
 		61A0C9651D5C2FFF00548E2C /* CircleScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A0C9641D5C2FFF00548E2C /* CircleScrollViewTests.m */; };
 		61A0C9701D5C2FFF00548E2C /* CircleScrollViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A0C96F1D5C2FFF00548E2C /* CircleScrollViewUITests.m */; };
+		61A0C97F1D5D753000548E2C /* DKSCircleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A0C97E1D5D753000548E2C /* DKSCircleImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		61A0C96B1D5C2FFF00548E2C /* CircleScrollViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CircleScrollViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A0C96F1D5C2FFF00548E2C /* CircleScrollViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleScrollViewUITests.m; sourceTree = "<group>"; };
 		61A0C9711D5C2FFF00548E2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61A0C97D1D5D753000548E2C /* DKSCircleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSCircleImage.h; sourceTree = "<group>"; };
+		61A0C97E1D5D753000548E2C /* DKSCircleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSCircleImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				61A0C94E1D5C2FFF00548E2C /* AppDelegate.m */,
 				61A0C9501D5C2FFF00548E2C /* ViewController.h */,
 				61A0C9511D5C2FFF00548E2C /* ViewController.m */,
+				61A0C97D1D5D753000548E2C /* DKSCircleImage.h */,
+				61A0C97E1D5D753000548E2C /* DKSCircleImage.m */,
 				61A0C9531D5C2FFF00548E2C /* Main.storyboard */,
 				61A0C9561D5C2FFF00548E2C /* Assets.xcassets */,
 				61A0C9581D5C2FFF00548E2C /* LaunchScreen.storyboard */,
@@ -272,6 +277,7 @@
 			files = (
 				61A0C9521D5C2FFF00548E2C /* ViewController.m in Sources */,
 				61A0C94F1D5C2FFF00548E2C /* AppDelegate.m in Sources */,
+				61A0C97F1D5D753000548E2C /* DKSCircleImage.m in Sources */,
 				61A0C94C1D5C2FFF00548E2C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

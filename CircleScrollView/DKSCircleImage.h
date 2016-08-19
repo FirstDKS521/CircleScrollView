@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DKSCircleImage : UIView
+typedef void(^ImageIndexBlock)(NSInteger imageIndex);
+@interface DKSCircleImage : UIView<UIScrollViewDelegate>
+
+/**
+ *  传递点击的哪张图片
+ */
+- (void)getSelectWhichImage:(ImageIndexBlock)imageIndex;
+
+/**
+ * 初始化
+ */
+- (id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imageArray;
 
 @end
