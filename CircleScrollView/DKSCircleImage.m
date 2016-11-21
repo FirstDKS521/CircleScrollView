@@ -11,6 +11,7 @@
 #define K_Width [UIScreen mainScreen].bounds.size.width
 
 static NSInteger imageCount; //图片个数
+static double intervalTime = 3.0; // 间隔时长
 @interface DKSCircleImage ()
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -48,11 +49,9 @@ static NSInteger imageCount; //图片个数
         NSString *imageName = @"";
         if (i == 0) {
             imageName = imageArray[imageArray.count - 1];
-        }
-         else if (i == imageArray.count + 1) {
+        } else if (i == imageArray.count + 1) {
             imageName = imageArray[0];
-        }
-         else {
+        } else {
             imageName = imageArray[i - 1];
         }
         image.image = [UIImage imageNamed:imageName];
@@ -82,7 +81,7 @@ static NSInteger imageCount; //图片个数
 
 - (void)addTimer
 {
-    self.timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+    self.timer = [NSTimer timerWithTimeInterval:intervalTime target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
@@ -109,6 +108,18 @@ static NSInteger imageCount; //图片个数
 
 #pragma mark - UIScrollViewDelegate
 
+//通过手势拖动时 暂停计时器
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self pasueTimer];
+}
+
+//通过手势拖动结束时 添加计时器
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self addTimer];
+}
+
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat offSetX = scrollView.contentOffset.x;
@@ -117,7 +128,7 @@ static NSInteger imageCount; //图片个数
         self.pageControl.currentPage = 0;
         scrollView.contentOffset = CGPointMake(K_Width, 0);
     } else if (offSetX < K_Width) {  //向右滑动
-        self.pageControl.currentPage = 2;
+        self.pageControl.currentPage = imageCount - 1;
         self.currentPage = imageCount;
         scrollView.contentOffset = CGPointMake(K_Width * imageCount, 0);
     } else {

@@ -45,7 +45,7 @@ static NSInteger const imageCount = 3;
     NSArray *imageArray = @[@"image1", @"image2", @"image3"];
     self.circleImage = [[DKSCircleImage alloc] initWithFrame:CGRectMake(0, 300, K_Width, 200) imageArray:imageArray];
     [self.circleImage getSelectWhichImage:^(NSInteger imageIndex) {
-        NSLog(@"点击了第%d张图片", imageIndex);
+        NSLog(@"点击了第%@张图片", @(imageIndex));
     }];
     [self.view addSubview:self.circleImage];
 }
@@ -106,7 +106,7 @@ static NSInteger const imageCount = 3;
 
 - (void)addTimer
 {
-    self.timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+    self.timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
@@ -141,7 +141,7 @@ static NSInteger const imageCount = 3;
         self.pageControl.currentPage = 0;
         scrollView.contentOffset = CGPointMake(K_Width, 0);
     } else if (offSetX < K_Width) {  //向右滑动
-        self.pageControl.currentPage = 2;
+        self.pageControl.currentPage = imageCount - 1;
         self.currentPage = imageCount;
         scrollView.contentOffset = CGPointMake(K_Width * imageCount, 0);
     } else {
@@ -175,7 +175,7 @@ static NSInteger const imageCount = 3;
         _pageControl = [[UIPageControl alloc] init];
         //注意此方法可以根据页数返回UIPageControl合适的大小
         CGSize size= [_pageControl sizeForNumberOfPages:imageCount];
-        _pageControl.frame  = CGRectMake(K_Width - size.width - 30, CGRectGetMaxY(self.scrollView.frame) - size.height, size.width, size.height);
+        _pageControl.frame  = CGRectMake((K_Width - size.width) / 2, CGRectGetMaxY(self.scrollView.frame) - size.height, size.width, size.height);
         //设置颜色
         _pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:0.846 alpha:1.000];
         //设置当前页颜色
